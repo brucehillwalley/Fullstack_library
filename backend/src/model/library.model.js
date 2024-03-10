@@ -41,7 +41,7 @@ const Library = sequelize.define("books", {
 
 // Syncronization:
 // Model bilgilerini db'ye uygula:
-sequelize.sync() // CREATE TABLE
+// sequelize.sync() // CREATE TABLE
 // sequelize.sync({ force: true }) // DROP TABLE & CREATE TABLE
 // sequelize.sync({ alter: true }) // TO BACKUP & DROP TABLE & CREATE TABLE & FROM BACKUP
 

@@ -1,17 +1,16 @@
 "use strict";
 
-const library = require('../controller/library.controller')
+const library = require("../controller/library.controller");
 
-const router = require('express').Router()
+const router = require("express").Router();
 
-router.route('/')
-    .get(library.list)
-    .post(library.create)
+router.route("/books").get(library.list).post(library.create);
 
-router.route('/:id')
-    .get(library.read)
-    .put(library.update)
-    .patch(library.update)
-    .delete(library.delete)
+router
+  .route("/books/:id")
+  .get(library.read)
+  .put(library.update)
+  .patch(library.update)
+  .delete(library.delete);
 
-module.exports = router
+module.exports = router;
