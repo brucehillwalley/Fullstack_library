@@ -1,28 +1,20 @@
-import { useEffect, useState } from "react";
-import "./index.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ShowBook from "./pages/ShowBook";
+import EditBook from "./pages/EditBook";
+import CreateBook from "./pages/CreateBook";
+import DeleteBook from "./pages/DeleteBook";
 
-function App() {
-  const [books, setBooks] = useState([]);
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/books")
-      .then((res) => res.json())
-      .then((data) => setBooks(data.result.rows))
-      .catch((err) => console.log(err));
-  }, []);
+const App = () => {
   return (
-    <div>
-      {books.map((book) => (
-        <p
-          className="text-black
-    font-bold text-center"
-          id={book.id}
-          key={book.id}
-        >
-          {book.title}
-        </p>
-      ))}
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/books/create" element={<CreateBook />} />
+      <Route path="/books/details/:bookId" element={<ShowBook />} />
+      <Route path="/books/edit/:bookId" element={<EditBook />} />
+      <Route path="/books/delete/:bookId" element={<DeleteBook />} />
+    </Routes>
   );
-}
+};
 
 export default App;
