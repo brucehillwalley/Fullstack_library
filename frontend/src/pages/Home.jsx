@@ -24,7 +24,7 @@ const Home = () => {
        
       }, []);
 
- console.log(books);
+//  console.log(books);
    
   return (
     <div className='p-4'>
