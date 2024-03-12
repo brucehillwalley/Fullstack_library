@@ -25,9 +25,12 @@ const ShowBook = () => {
 
   return (
     <div className="p-4 flex flex-col justify-center">
+      <BackButton />
       <h1 className="text-3xl my-8 font-bold text-center">Show Book</h1>
       {loading ? (
-        <Spinner />
+        <div className="mt-32 flex justify-center items-center ">
+          <Spinner/>
+        </div>
       ) : (
         <div className="flex justify-center">
           <div className="flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4">
