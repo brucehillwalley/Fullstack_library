@@ -1,98 +1,111 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // import axios from 'axios';
-import Spinner from '../components/Spinner';
-import { Link } from 'react-router-dom';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsInfoCircle } from 'react-icons/bs';
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
+import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
+import { AiOutlineEdit } from "react-icons/ai";
+import { BsInfoCircle } from "react-icons/bs";
+import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 
 const Home = () => {
-    const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(false);
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch('http://127.0.0.1:8000/books')
-          .then((res) => res.json())
-          .then((data) => {
-            setBooks(data.result.rows);
-            setLoading(false);
-          })
-          .catch((error) => {
-            console.log(error)});
-            setLoading(false);
-       
-      }, []);
+  useEffect(() => {
+    setLoading(true);
+    fetch("http://127.0.0.1:8000/books")
+      .then((res) => res.json())
+      .then((data) => {
+        setBooks(data.result.rows);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setLoading(false);
+  }, []);
 
-//  console.log(books);
-   
+  //  console.log(books);
+
   return (
-    <div className='p-4'>
-    <div className='flex justify-between items-center'>
-        <h1 className='text-3xl my-8 font-bold'>Books List</h1>
-        <Link to='/books/create'>
-        <MdOutlineAddBox className='text-4xl text-sky-600' />
+    <div className="p-4">
+    <h1 className="text-3xl my-8 font-bold text-center">WELLCOME TO LIBRARY</h1>
+    <h4 className=" my-8 font-bold text-center">Let books enlighten you</h4>
+        <img className="mx-auto h-48"
+          src="https://media.giphy.com/media/VJE5f22EQwaHjx5gTk/giphy.gif?cid=ecf05e47drsudc5cu1k29tncsjaxka6oi9asj4drj7nlbbtk&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+          alt=""
+        />
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl my-8 font-bold">Books List</h1>
+        <Link to="/books/create">
+          <MdOutlineAddBox className="text-4xl text-sky-600" />
         </Link>
-    </div>
-   {loading ? (
-    <Spinner />
-   ) : (
-        <table className='w-full border-separate border-spacing-2'>
-            <thead>
-                <tr>
-
-                    <th className='border border-slate-600 rounded-md'>No</th>
-                    <th className='border  border-slate-600 rounded-md'>Title</th>
-                    <th className='border  border-slate-600 rounded-md max-md:hidden'>Author</th>
-                    <th className='border  border-slate-600 rounded-md max-md:hidden'>ISBN</th>
-                    <th className='border  border-slate-600 rounded-md max-md:hidden'>Genre</th>
-                    <th className='border  border-slate-600 rounded-md max-md:hidden'>Publish Year</th>
-                    <th className='border  border-slate-600 rounded-md'>Operations</th>
-
-
-                </tr>
-            </thead>
-            <tbody>
+      </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <table className="w-full border-separate border-spacing-2">
+          <thead>
+            <tr>
+              <th className="border border-slate-600 rounded-md">No</th>
+              <th className="border  border-slate-600 rounded-md">Title</th>
+              <th className="border  border-slate-600 rounded-md max-md:hidden">
+                Author
+              </th>
+              <th className="border  border-slate-600 rounded-md max-md:hidden">
+                ISBN
+              </th>
+              <th className="border  border-slate-600 rounded-md max-md:hidden">
+                Genre
+              </th>
+              <th className="border  border-slate-600 rounded-md max-md:hidden">
+                Publish Year
+              </th>
+              <th className="border  border-slate-600 rounded-md">
+                Operations
+              </th>
+            </tr>
+          </thead>
+          <tbody>
             {books.map((book, index) => (
-          <tr key={book.id} className='h-8'>
-            <td className='border border-slate-700 rounded-md text-center'>
-              {index + 1}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center'>
-              {book.title}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-              {book.author}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-              {book.ISBN}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-              {book.genre}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-              {book.publicationYear}
-            </td>
-            <td className='border border-slate-700 rounded-md text-center'>
-              <div className='flex justify-center gap-x-4'>
-                <Link to={`/books/details/${book.id}`}>
-                  <BsInfoCircle className='text-2xl text-green-800' />
-                </Link>
-                <Link to={`/books/edit/${book.id}`}>
-                  <AiOutlineEdit className='text-2xl text-yellow-600' />
-                </Link>
-                <Link to={`/books/delete/${book.id}`}>
-                  <MdOutlineDelete className='text-2xl text-red-600' />
-                </Link>
-              </div>
-            </td>
-          </tr>
-        ))}
-            </tbody>
+              <tr key={book.id} className="h-8">
+                <td className="border border-slate-700 rounded-md text-center">
+                  {index + 1}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center">
+                  {book.title}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                  {book.author}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                  {book.ISBN}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                  {book.genre}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center max-md:hidden">
+                  {book.publicationYear}
+                </td>
+                <td className="border border-slate-700 rounded-md text-center">
+                  <div className="flex justify-center gap-x-4">
+                    <Link to={`/books/details/${book.id}`}>
+                      <BsInfoCircle className="text-2xl text-green-800" />
+                    </Link>
+                    <Link to={`/books/edit/${book.id}`}>
+                      <AiOutlineEdit className="text-2xl text-yellow-600" />
+                    </Link>
+                    <Link to={`/books/delete/${book.id}`}>
+                      <MdOutlineDelete className="text-2xl text-red-600" />
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-   )}
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
