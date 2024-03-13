@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="p-4">
     <h1 className="text-3xl my-8 font-bold text-center">WELLCOME TO LIBRARY</h1>
-    <h4 className=" my-8 font-bold text-center">Let books enlighten you</h4>
+    <p className=" my-8 font-bold text-center">Let books enlighten you</p>
         <img className="mx-auto h-48"
           src="https://media.giphy.com/media/VJE5f22EQwaHjx5gTk/giphy.gif?cid=ecf05e47drsudc5cu1k29tncsjaxka6oi9asj4drj7nlbbtk&ep=v1_gifs_search&rid=giphy.gif&ct=g"
           alt=""
