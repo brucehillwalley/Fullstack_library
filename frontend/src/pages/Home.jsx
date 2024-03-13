@@ -30,7 +30,7 @@ const Home = () => {
   //  console.log(books);
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       <h1 className="text-3xl my-8 font-bold text-center">
         WELCOME TO LIBRARY APP
       </h1>

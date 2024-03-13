@@ -29,7 +29,7 @@ const ShowBook = () => {
       <h1 className="text-3xl my-8 font-bold text-center">Show Book</h1>
       {loading ? (
         <div className="mt-32 flex justify-center items-center ">
-          <Spinner/>
+          <Spinner />
         </div>
       ) : (
         <div className="flex justify-center">
@@ -67,13 +67,13 @@ const ShowBook = () => {
             </div>
             <div className="my-4">
               <span className="text-xl mr-4 text-gray-500">Create Time</span>
-              <span>{new Date(book.createdAt).toString()}</span>
+              <span>{new Date(book.createdAt).toLocaleString()}</span>
             </div>
             <div className="my-4">
               <span className="text-xl mr-4 text-gray-500">
                 Last Update Time
               </span>
-              <span>{new Date(book.updatedAt).toString()}</span>
+              <span>{new Date(book.updatedAt).toLocaleString()}</span>
             </div>
           </div>
         </div>
