@@ -47,7 +47,7 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://127.0.0.1:8000/books/${bookId}/`, data)
+      .put(`${import.meta.env.VITE_BACKEND_URL}books/${bookId}/`, data)
       .then((res) => {
         console.log(res);
         setLoading(false);
