@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://127.0.0.1:8000/books")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/books`)
       .then((res) => res.json())
       .then((data) => {
         setBooks(data.result.rows);
