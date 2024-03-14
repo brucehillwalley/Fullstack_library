@@ -22,7 +22,7 @@ const EditBook = () => {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/books/${bookId}/`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}books/${bookId}/`)
       .then((res) => {
         const oldData = res.data.result;
         setTitle(oldData.title);

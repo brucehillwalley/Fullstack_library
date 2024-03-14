@@ -12,7 +12,7 @@ const ShowBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://127.0.0.1:8000/books/${bookId}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}books/${bookId}`)
       .then((res) => setBook(res.data.result))
       .then(() => setLoading(false))
       .catch((error) => {

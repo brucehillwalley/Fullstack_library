@@ -13,7 +13,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://127.0.0.1:8000/books/${bookId}/`)
+      .delete(`${import.meta.env.VITE_BACKEND_URL}books/${bookId}/`)
       .then((res) => {
         console.log(res);
         setLoading(false);
